@@ -30,7 +30,7 @@ module Ironman2023Hanabi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << '127.0.0.1'
+    config.hosts << ".zeabur.app"
 
     # Don't generate system test files.
     config.generators.system_tests = nil
