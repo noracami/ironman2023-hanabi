@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: ironman2023_hanabi_production
-  username: ironman2023_hanabi
-  password: <%= ENV["IRONMAN2023_HANABI_DATABASE_PASSWORD"] %>
+  database: <%= ENV["IRONMAN2023_HANABI_DATABASE"] %>
+  host: <%= ENV["POSTGRES_HOST"] %>
+  username: <%= ENV["POSTGRES_USERNAME"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  port: <%= ENV["POSTGRES_PORT"] %>
