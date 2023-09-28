@@ -1,3 +1,6 @@
 {
-  "recommendations": ["shopify.ruby-extensions-pack"]
+  "recommendations": [
+    "shopify.ruby-extensions-pack",
+    "christian-kohler.path-intellisense"
+  ]
 }
