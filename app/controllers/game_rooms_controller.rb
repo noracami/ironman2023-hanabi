@@ -21,7 +21,7 @@ class GameRoomsController < ApplicationController
 
   # POST /game_rooms or /game_rooms.json
   def create
-    @game_room = GameRoom.new(game_room_params)
+    @game_room = GameRoom.new(game_room_params) { _1.game_data = {players: []} }
 
     respond_to do |format|
       if @game_room.save

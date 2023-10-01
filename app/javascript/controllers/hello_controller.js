@@ -53,4 +53,11 @@ export default class extends Controller {
       body: "This is a cool chat app.",
     });
   }
+
+  join_the_room({ params: { roomId } }) {
+    this.channel.joinGame({
+      nickname: "Paul",
+      roomId,
+    });
+  }
 }

@@ -3,12 +3,13 @@
     <strong class="block font-medium mb-1">Name:</strong>
     <%= game_room.name %>
   </p>
-
   <p class="my-5">
     <strong class="block font-medium mb-1">Game data:</strong>
     <%= game_room.game_data %>
   </p>
-
+  <p>
+    <button type="button" data-action="hello#join_the_room" data-hello-room_id-param="<%= game_room.id %>" class="rounded-lg my-10 py-3 px-5 bg-blue-400 text-white">join the room</button>
+  </p>
   <% if action_name != "show" %>
     <%= link_to "Show this game room", game_room, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this game room', edit_game_room_path(game_room), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

@@ -27,5 +27,9 @@ export default function createRoom({ connected, disconnected, received }) {
     sendMessage(messageBody) {
       this.perform("foobar", messageBody);
     },
+
+    joinGame(messageBody) {
+      this.perform("join_game", messageBody);
+    },
   });
 }

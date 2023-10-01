@@ -12,6 +12,21 @@ class ChatRoomChannel < ApplicationCable::Channel
     chat_to_public(data['body'], { nickname: data['nickname'] })
   end
 
+  def join_game(data)
+    game_room =  GameRoom.find_by id: data['roomId']
+
+    return unless game_room
+
+    if uuid.in? game_room.game_data['players']
+      broadcast("#{uuid} has already joined room #{game_room.name}")
+    else
+      game_room.game_data['players'] << uuid
+      game_room.save
+
+      broadcast("#{uuid} has joined room #{game_room.name}")
+    end
+  end
+
   private
 
   def broadcast(data, speaking: 'Lobby')
