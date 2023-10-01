@@ -65,6 +65,6 @@ class GameRoomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_room_params
-      params.require(:game_room).permit(:name)
+      params.require(:game_room).permit(:name, :game_data)
     end
 end

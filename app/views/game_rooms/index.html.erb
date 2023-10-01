@@ -2,15 +2,13 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
+
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Game rooms</h1>
     <%= link_to 'New game room', new_game_room_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
+
   <div id="game_rooms" class="min-w-full">
     <%= render @game_rooms %>
-  </div>
-  <div class="min-w-full" data-controller="hello">
-    <p class="font-bold text-2xl" data-hello-target="title"></p>
-    <button type="button" data-action="hello#ping_the_room" class="rounded-lg py-3 px-5 bg-emerald-600 text-white">ping to the room</button>
   </div>
 </div>
