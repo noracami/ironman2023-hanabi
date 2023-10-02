@@ -31,5 +31,13 @@ export default function createRoom({ connected, disconnected, received }) {
     joinGame(messageBody) {
       this.perform("join_game", messageBody);
     },
+
+    startGame(messageBody) {
+      this.perform("start_game", messageBody);
+    },
+
+    playCardRandomly(messageBody) {
+      this.perform("play_card_randomly", messageBody);
+    },
   });
 }

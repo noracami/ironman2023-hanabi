@@ -9,6 +9,8 @@
   </p>
   <p>
     <button type="button" data-action="hello#join_the_room" data-hello-room_id-param="<%= game_room.id %>" class="rounded-lg my-10 py-3 px-5 bg-blue-400 text-white">join the room</button>
+    <button type="button" data-action="hello#startGame" data-hello-room_id-param="<%= game_room.id %>" class="rounded-lg my-10 py-3 px-5 bg-green-700 text-white">start Game</button>
+    <button type="button" data-action="hello#playCardRandomly" data-hello-room_id-param="<%= game_room.id %>" class="rounded-lg my-10 py-3 px-5 bg-red-500 text-white">Play Card Randomly</button>
   </p>
   <% if action_name != "show" %>
     <%= link_to "Show this game room", game_room, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

@@ -3,7 +3,7 @@ class GameRoomsController < ApplicationController
 
   # GET /game_rooms or /game_rooms.json
   def index
-    @game_rooms = GameRoom.all
+    @game_rooms = GameRoom.order(id: :desc)
   end
 
   # GET /game_rooms/1 or /game_rooms/1.json
@@ -21,7 +21,7 @@ class GameRoomsController < ApplicationController
 
   # POST /game_rooms or /game_rooms.json
   def create
-    @game_room = GameRoom.new(game_room_params) { _1.game_data = {players: []} }
+    @game_room = GameRoom.new(game_room_params) { _1.game_data = {players: [] , state: 0} }
 
     respond_to do |format|
       if @game_room.save

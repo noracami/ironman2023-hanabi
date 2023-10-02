@@ -60,4 +60,16 @@ export default class extends Controller {
       roomId,
     });
   }
+
+  startGame({ params: { roomId } }) {
+    this.channel.startGame({
+      roomId,
+    });
+  }
+
+  playCardRandomly({ params: { roomId } }) {
+    this.channel.playCardRandomly({
+      roomId,
+    });
+  }
 }
