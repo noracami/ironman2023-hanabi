@@ -6,14 +6,23 @@ class Game
     GAME_COMPLETED: 3
   }
 
-  attr_accessor :name, :state, :game_room_id, :game_room
+  MODE = {
+    "基本 5 色": 0,
+    "6 色 10 張": 1,
+    "6 色 5 張": 2,
+    "彩色": 3,
+  }
+
+  attr_accessor :id, :name, :mode, :players, :state, :game_room_id, :game_room
 
   def initialize(game_room)
     @game_room = game_room
     params = game_room.game_data || {}
 
-    @name = params.dig :name
-    @players = []
+    @id = game_room.id
+    @name = game_room.name
+    @mode = params.dig "mode"
+    @players = params.dig "players"
     @current_player = nil
     @deck = []
     @discards = []
