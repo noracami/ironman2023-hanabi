@@ -1,5 +1,6 @@
 <%= turbo_stream_from "game_rooms" %>
 <div class="w-full">
+  <%= link_to 'Login with GitHub', auth_at_provider_path(:provider => :github) %>
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
