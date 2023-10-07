@@ -10,6 +10,8 @@ class OauthsController < ApplicationController
   def callback
     provider = params[:provider]
     if @user = login_from(provider)
+      cookies.encrypted['user_id'] = @user.id
+
       redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
     else
       begin
@@ -17,20 +19,15 @@ class OauthsController < ApplicationController
         # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
 
         reset_session # protect from session fixation attack
+        cookies.encrypted['user_id'] = @user.id
         auto_login(@user)
         redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
-      rescue
+      rescue => e
+        pp '&'*100
+        pp e
+        pp '&'*100
         redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
       end
     end
   end
-
-  #example for Rails 4: add private method below and use "auth_params[:provider]" in place of
-  #"params[:provider] above.
-
-  # private
-  # def auth_params
-  #   params.permit(:code, :provider)
-  # end
-
 end

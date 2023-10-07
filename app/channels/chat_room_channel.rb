@@ -1,4 +1,8 @@
 class ChatRoomChannel < ApplicationCable::Channel
+  def uuid
+    current_user.id
+  end
+
   def subscribed
     # stream_from "some_channel"
     stream_from 'public_channel'
@@ -128,7 +132,7 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def chat_to_public(data, params = {})
-    nickname = params.dig(:nickname)
+    nickname = current_user.name
     ActionCable.server.broadcast 'public_channel', { message: data, role: :player, uuid:, nickname: }
   end
 

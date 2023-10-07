@@ -1,6 +1,17 @@
 <%= turbo_stream_from "game_rooms" %>
 <div class="w-full">
   <%= link_to 'Login with GitHub', auth_at_provider_path(:provider => :github) %>
+  <p>
+    <%= logged_in? %>
+  </p>
+  <p>
+    <% if current_user %>
+      <%= current_user.external? %>
+      <%= current_user.name %>
+      <%= current_user.email %>
+      <%= cookies.encrypted['user_id'] %>
+    <% end %>
+  </p>
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
