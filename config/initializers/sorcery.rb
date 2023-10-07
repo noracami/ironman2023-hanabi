@@ -143,7 +143,7 @@ Rails.application.config.sorcery.configure do |config|
   config.github.secret = ENV["OAUTH_GITHUB_SECRET"]
   config.github.callback_url = ENV["OAUTH_GITHUB_CALLBACK_URL"]
   config.github.user_info_mapping = {:email => "name"}
-  config.github.scope = ""
+  config.github.scope = "user"
   #
   # config.paypal.key = ""
   # config.paypal.secret = ""
