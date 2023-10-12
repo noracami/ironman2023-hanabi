@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
@@ -9,12 +11,9 @@ module ApplicationCable
     private
 
     def find_verified_user
-      if verified_user = User.find_by(id: cookies.encrypted['user_id'])
-        verified_user
-      else
-        visitor_name = SecureRandom.urlsafe_base64
-        User.create(email: "#{visitor_name}@visit.or", name: "visitor: #{visitor_name[..6]}")
-      end
+      return unless (verified_user = User.find_by(id: cookies.encrypted['user_id']))
+
+      verified_user
     end
   end
 end
