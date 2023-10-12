@@ -1,17 +1,28 @@
 <%= turbo_stream_from "game_rooms" %>
 <div class="w-full">
   <%= link_to 'Login with GitHub', auth_at_provider_path(:provider => :github) %>
-  <p>
-    <%= logged_in? %>
-  </p>
-  <p>
+  <div>
+    <p>
+      logged_in?: <%= logged_in? %>
+    </p>
+  </div>
+  <div>
     <% if current_user %>
-      <%= current_user.external? %>
-      <%= current_user.name %>
-      <%= current_user.email %>
-      <%= cookies.encrypted['user_id'] %>
+      <p>
+        is_external?: <%= current_user.external? %>
+      </p>
+      <p>
+        name: <%= current_user.name %>
+      </p>
+      <p>
+        email: <%= current_user.email %>
+      </p>
+      <p>
+        user_id: <%= cookies.encrypted['user_id'] %>
+      </p>
+      <%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }  %>
     <% end %>
-  </p>
+  </div>
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
