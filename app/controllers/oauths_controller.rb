@@ -24,13 +24,13 @@ class OauthsController < ApplicationController
   def logout
     return unless logged_in?
 
-    user = current_user
     before_logout!
-    @current_user = nil
+    cookies.delete 'user_id'
+    ActionCable.server.remote_connections.where(current_user:).disconnect
     reset_sorcery_session
-    after_logout!(user)
+    after_logout!(current_user)
 
-    redirect_to root_path, notice: 'Logged out!'
+    redirect_to root_path, notice: 'Logged out!', status: 303
   end
 
   def callback

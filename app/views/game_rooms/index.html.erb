@@ -1,12 +1,13 @@
 <%= turbo_stream_from "game_rooms" %>
 <div class="w-full">
-  <%= link_to 'Login with GitHub', auth_at_provider_path(:provider => :github) %>
   <div>
-    <p>
-      logged_in?: <%= logged_in? %>
-    </p>
-  </div>
-  <div>
+    <% if current_user %>
+      <%= link_to 'Log out', logout_path, data: { "turbo-method": :delete },
+      class: "my-2 p-4 border-2 rounded-2xl inline-block border-slate-400 duration-300 hover:-translate-y-1" %>
+    <% else %>
+      <%= link_to 'Login with GitHub', auth_at_provider_path(:provider => :github),
+      class: "my-2 p-4 border-2 rounded-2xl inline-block border-slate-400 duration-300 hover:-translate-y-1" %>
+    <% end %>
     <% if current_user %>
       <p>
         is_external?: <%= current_user.external? %>
@@ -20,7 +21,6 @@
       <p>
         user_id: <%= cookies.encrypted['user_id'] %>
       </p>
-      <%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }  %>
     <% end %>
   </div>
   <% if notice.present? %>
