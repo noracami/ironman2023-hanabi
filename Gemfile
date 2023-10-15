@@ -1,26 +1,26 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby '3.2.2'
 
-gem "bootsnap", require: false
-gem "dotenv-rails", "~> 2.8"
-gem "importmap-rails"
-gem "jbuilder"
-gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
-gem "rails", "~> 7.0.8"
-gem "redis", "~> 4.0"
-gem "sorcery", "~> 0.16.5"
-gem "sprockets-rails"
-gem "stimulus-rails"
-gem "tailwindcss-rails"
-gem "turbo-rails"
+gem 'bootsnap', require: false
+gem 'dotenv-rails', '~> 2.8'
+gem 'importmap-rails'
+gem 'jbuilder'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.0'
+gem 'rails', '~> 7.1.1'
+gem 'redis', '~> 4.0'
+gem 'sorcery', '~> 0.16.5'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'tailwindcss-rails'
+gem 'turbo-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -35,13 +35,13 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem "rspec-rails", "~> 6.0"
-  gem "rubocop", require: false
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 6.0'
+  gem 'rubocop', require: false
 end
 
 group :development do
-  gem "web-console"
+  gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
